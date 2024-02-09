@@ -1,0 +1,19 @@
+version: '3.9'
+
+services:
+  versi-api:
+    container_name: versi-api
+    image: versi-api:latest
+    restart: always
+    env_file: ./versi-api/.env
+    build: ./versi-api
+    volumes:
+      - ./versi-api:/app
+    ports:
+      - "6969:6969"
+    networks:
+      - versi-network
+
+networks:
+  versi-network:
+    driver: bridge
